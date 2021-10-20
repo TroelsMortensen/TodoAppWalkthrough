@@ -26,6 +26,7 @@ public class ListController {
         ownerColumn.setCellValueFactory(new PropertyValueFactory<>("owner"));
         textColumn.setCellValueFactory(new PropertyValueFactory<>("text"));
 
+
         statusColumn.setCellValueFactory(arg -> {
                     CheckBox checkBox = new CheckBox();
                     Todo todo = arg.getValue();
