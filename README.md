@@ -6,3 +6,9 @@ I'm doing a video tutorial. YouTube link to be attached later.
 
 This time I've tried to use different branches, so you can see for each video part what the code looks like. 
 This is because I imagine I'll make code cleanups/refactorings along the way.
+
+Current status:
+
+Master branch: covers videos part 1-3, i.e. viewing all todos, and adding new todos.
+
+ChangeStatus branch: will cover how to update a todo's status from not completed to completed.
