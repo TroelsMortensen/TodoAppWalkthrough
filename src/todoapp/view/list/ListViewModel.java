@@ -23,4 +23,8 @@ public class ListViewModel {
     public ObservableList<Todo> getTodos() {
         return todos;
     }
+
+    public void updateTodo(Todo todo) {
+        todoService.update(todo);
+    }
 }

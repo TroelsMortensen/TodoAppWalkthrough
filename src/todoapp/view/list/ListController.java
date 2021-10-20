@@ -1,9 +1,14 @@
 package todoapp.view.list;
 
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.util.Callback;
 import todoapp.core.ViewHandler;
 import todoapp.model.Todo;
 
@@ -13,7 +18,7 @@ public class ListController {
     public TableColumn<Todo, Integer> idColumn;
     public TableColumn<Todo, String> ownerColumn;
     public TableColumn<Todo, String> textColumn;
-    public TableColumn<Todo, Boolean> statusColumn;
+    public TableColumn<Todo, CheckBox> statusColumn;
 
     private ViewHandler viewHandler;
 
@@ -24,7 +29,21 @@ public class ListController {
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         ownerColumn.setCellValueFactory(new PropertyValueFactory<>("owner"));
         textColumn.setCellValueFactory(new PropertyValueFactory<>("text"));
-        statusColumn.setCellValueFactory(new PropertyValueFactory<>("completed"));
+
+        statusColumn.setCellValueFactory(arg -> {
+                    CheckBox checkBox = new CheckBox();
+                    Todo todo = arg.getValue();
+                    checkBox.selectedProperty().setValue(todo.getCompleted());
+
+                    checkBox.selectedProperty().addListener((observableValue, oldValue, newValue) -> {
+                        todo.setCompleted(newValue);
+                        listVM.updateTodo(todo);
+
+                    });
+
+                    return new SimpleObjectProperty<>(checkBox);
+                }
+        );
     }
 
     public void onAddButton() {
