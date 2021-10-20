@@ -7,6 +7,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import todoapp.view.add.AddController;
 import todoapp.view.list.ListController;
+import todoapp.view.update.UpdateController;
 
 import java.io.IOException;
 
@@ -59,4 +60,56 @@ public class ViewHandler {
         }
 
     }
+
+    public void openEditView(int id) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("../view/update/Update.fxml"));
+            Parent root = loader.load();
+
+            UpdateController controller = loader.getController();
+            controller.init(this, vmf.getUpdateVM(), id);
+
+            Scene scene = new Scene(root);
+            stage.setTitle("Update todo");
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

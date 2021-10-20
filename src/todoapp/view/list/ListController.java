@@ -1,6 +1,7 @@
 package todoapp.view.list;
 
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -15,6 +16,7 @@ public class ListController {
     public TableColumn<Todo, String> ownerColumn;
     public TableColumn<Todo, String> textColumn;
     public TableColumn<Todo, CheckBox> statusColumn;
+    public TableColumn<Todo, Button> editColumn;
 
     private ViewHandler viewHandler;
 
@@ -25,7 +27,6 @@ public class ListController {
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         ownerColumn.setCellValueFactory(new PropertyValueFactory<>("owner"));
         textColumn.setCellValueFactory(new PropertyValueFactory<>("text"));
-
 
         statusColumn.setCellValueFactory(arg -> {
                     CheckBox checkBox = new CheckBox();
@@ -41,6 +42,20 @@ public class ListController {
                     return new SimpleObjectProperty<>(checkBox);
                 }
         );
+
+        editColumn.setCellValueFactory(arg -> {
+                    Button button = new Button("Edit");
+                    Todo todo = arg.getValue();
+
+                    button.setOnAction(evt -> {
+                                viewHandler.openEditView(todo.getId());
+                            }
+                    );
+
+                    return new SimpleObjectProperty<>(button);
+                }
+        );
+
     }
 
     public void onAddButton() {

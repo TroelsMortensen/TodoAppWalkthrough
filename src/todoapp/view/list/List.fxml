@@ -11,8 +11,9 @@
         <columns>
           <TableColumn fx:id="idColumn" prefWidth="75.0" text="Id" />
           <TableColumn fx:id="ownerColumn" prefWidth="150.0" text="Owner" />
-          <TableColumn fx:id="textColumn" prefWidth="500.0" text="Text" />
+          <TableColumn fx:id="textColumn" prefWidth="425.0" text="Text" />
           <TableColumn fx:id="statusColumn" prefWidth="75.0" text="Status" />
+          <TableColumn fx:id="editColumn" prefWidth="75.0" text="Edit" />
         </columns>
       </TableView>
       <Button layoutX="14.0" layoutY="409.0" mnemonicParsing="false" onAction="#onAddButton" text="Add todo" />
