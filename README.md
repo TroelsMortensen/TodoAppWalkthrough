@@ -11,4 +11,8 @@ Current status:
 
 Master branch: covers videos part 1-3, i.e. viewing all todos, and adding new todos.
 
-ChangeStatus branch: will cover how to update a todo's status from not completed to completed.
+ChangeStatus branch: how to update a todo's status from not completed to completed.
+
+Update branch: how to edit a todo
+
+Popup branch: how to make a small popup to show error messages and the like.
