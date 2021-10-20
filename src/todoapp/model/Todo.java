@@ -9,10 +9,9 @@ public class Todo implements Serializable {
     private String text;
     private boolean completed;
 
-    public Todo(String owner, String text, boolean isCompleted) {
+    public Todo(String owner, String text) {
         this.owner = owner;
         this.text = text;
-        this.completed = isCompleted;
     }
 
     public int getId() {

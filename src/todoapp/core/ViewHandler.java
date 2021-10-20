@@ -5,6 +5,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import todoapp.view.add.AddController;
 import todoapp.view.list.ListController;
 
 import java.io.IOException;
@@ -24,7 +25,7 @@ public class ViewHandler {
         stage.show();
     }
 
-    private void openListView() {
+    public void openListView() {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("../view/list/List.fxml"));
@@ -39,5 +40,23 @@ public class ViewHandler {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void openAddView() {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("../view/add/Add.fxml"));
+            Parent root = loader.load();
+
+            AddController controller = loader.getController();
+            controller.init(this, vmf.getAddVM());
+
+            Scene scene = new Scene(root);
+            stage.setTitle("Add todo");
+            stage.setScene(scene);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }

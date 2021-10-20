@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="todoapp.view.add.AddController">
+   <children>
+      <VBox layoutY="-2.0" prefHeight="400.0" prefWidth="600.0">
+         <children>
+            <HBox>
+               <children>
+                  <Label text="Owner:" />
+                  <TextField fx:id="ownerTextField" />
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label text="Description:" />
+                  <TextField fx:id="descriptionTextField" />
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Button mnemonicParsing="false" onAction="#onOkButton" text="OK" />
+                  <Button mnemonicParsing="false" onAction="#onCancelButton" text="Cancel" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

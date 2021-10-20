@@ -19,16 +19,16 @@ public class TodoFileService implements TodoService{
     }
 
     private void seed() {
-        Todo t1 = new Todo("Troels", "walk the dog", true);
+        Todo t1 = new Todo("Troels", "walk the dog");
         t1.setId(1);
         list.add(t1);
-        Todo t2 = new Todo("Troels", "Do the dishes", false);
+        Todo t2 = new Todo("Troels", "Do the dishes");
         t2.setId(2);
         list.add(t2);
-        Todo t3 = new Todo("Hans", "Mow the lawn", false);
+        Todo t3 = new Todo("Hans", "Mow the lawn");
         t3.setId(3);
         list.add(t3);
-        Todo t4 = new Todo("Anne", "Pet the dog", false);
+        Todo t4 = new Todo("Anne", "Pet the dog");
         t4.setId(4);
         list.add(t4);
     }
@@ -54,8 +54,7 @@ public class TodoFileService implements TodoService{
             oos.close();
             fos.close();
         } catch (IOException e) {
-            e.printStackTrace();
-            // todo fix this
+            throw new RuntimeException("Problem saving data: " + e.getMessage());
         }
     }
 
