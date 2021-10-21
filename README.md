@@ -11,10 +11,10 @@ Current status:
 
 Master branch: covers videos part 1-3, i.e. viewing all todos, and adding new todos.
 
-ChangeStatus branch: how to update a todo's status from not completed to completed.
+ChangeStatus branch: part 4, how to update a todo's status from not completed to completed.
 
-Update branch: how to edit a todo
+Update branch: part 5, how to edit a todo
 
-ValidationAndRefactoring: In this branch I introduced a new layer between ViewModels and the TodoService (now renamed to DataAccess). This layer is responsible for data validation.
+ValidationAndRefactoring: part 6, in this branch I introduced a new layer between ViewModels and the TodoService (now renamed to DataAccess). This layer is responsible for data validation.
 
-Popup branch: how to make a small popup to show error/success messages and the like.
+Popup branch: part 7, how to make a small popup to show error/success messages and the like.
