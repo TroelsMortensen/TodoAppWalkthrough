@@ -15,4 +15,6 @@ ChangeStatus branch: how to update a todo's status from not completed to complet
 
 Update branch: how to edit a todo
 
-Popup branch: how to make a small popup to show error messages and the like.
+ValidationAndRefactoring: In this branch I introduced a new layer between ViewModels and the TodoService (now renamed to DataAccess). This layer is responsible for data validation.
+
+Popup branch: how to make a small popup to show error/success messages and the like.
