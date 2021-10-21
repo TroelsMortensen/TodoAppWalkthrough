@@ -1,27 +1,26 @@
 package todoapp.core;
 
-import todoapp.model.TodoService;
 import todoapp.view.add.AddViewModel;
 import todoapp.view.list.ListViewModel;
 import todoapp.view.update.UpdateViewModel;
 
 public class ViewModelFactory {
 
-    private ModelFactory modelFactory;
+    private LogicFactory logicFactory;
 
-    public ViewModelFactory(ModelFactory modelFactory) {
-        this.modelFactory = modelFactory;
+    public ViewModelFactory(LogicFactory logicFactory) {
+        this.logicFactory = logicFactory;
     }
 
     public ListViewModel getListVM() {
-        return new ListViewModel(modelFactory.getTodoService());
+        return new ListViewModel(logicFactory.getTodoLogic());
     }
 
     public AddViewModel getAddVM() {
-        return new AddViewModel(modelFactory.getTodoService());
+        return new AddViewModel(logicFactory.getTodoLogic());
     }
 
     public UpdateViewModel getUpdateVM() {
-        return new UpdateViewModel(modelFactory.getTodoService());
+        return new UpdateViewModel(logicFactory.getTodoLogic());
     }
 }

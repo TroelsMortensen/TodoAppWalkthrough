@@ -1,24 +1,24 @@
 package todoapp.view.update;
 
 import javafx.beans.property.*;
+import todoapp.logic.TodoLogic;
 import todoapp.model.Todo;
-import todoapp.model.TodoService;
 
 public class UpdateViewModel {
 
-    private TodoService todoService;
+    private TodoLogic todoLogic;
     private StringProperty owner = new SimpleStringProperty();
     private StringProperty description = new SimpleStringProperty();
     private IntegerProperty id = new SimpleIntegerProperty();
     private BooleanProperty completed = new SimpleBooleanProperty();
     private Todo todo;
 
-    public UpdateViewModel(TodoService todoService) {
-        this.todoService = todoService;
+    public UpdateViewModel(TodoLogic todoLogic) {
+        this.todoLogic = todoLogic;
     }
 
     void load(int id) {
-        todo = todoService.get(id);
+        todo = todoLogic.get(id);
 
         owner.setValue(todo.getOwner());
         description.setValue(todo.getText());
@@ -45,6 +45,6 @@ public class UpdateViewModel {
     public void save() {
         todo.setOwner(owner.getValue());
         todo.setText(description.getValue());
-        todoService.update(todo);
+        todoLogic.update(todo);
     }
 }

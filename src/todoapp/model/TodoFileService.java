@@ -1,10 +1,12 @@
 package todoapp.model;
 
+import todoapp.logic.TodoLogic;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TodoFileService implements TodoService{
+public class TodoFileService implements TodoDataAccess {
 
     private String path = "todos.bin";
     private List<Todo> list = new ArrayList<>();

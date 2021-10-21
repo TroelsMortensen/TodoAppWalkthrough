@@ -1,13 +1,13 @@
 package todoapp.core;
 
 import todoapp.model.TodoFileService;
-import todoapp.model.TodoService;
+import todoapp.model.TodoDataAccess;
 
-public class ModelFactory {
+public class DataAccessFactory {
 
-    private TodoService todoService;
+    private TodoDataAccess todoService;
 
-    public TodoService getTodoService() {
+    public TodoDataAccess getTodoDataAccess() {
         if(todoService == null) {
             todoService = new TodoFileService();
         }

@@ -2,17 +2,17 @@ package todoapp.view.add;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import todoapp.logic.TodoLogic;
 import todoapp.model.Todo;
-import todoapp.model.TodoService;
 
 public class AddViewModel {
 
-    private TodoService todoService;
+    private TodoLogic todoLogic;
     private StringProperty owner = new SimpleStringProperty();
     private StringProperty description = new SimpleStringProperty();
 
-    public AddViewModel(TodoService todoService){
-        this.todoService = todoService;
+    public AddViewModel(TodoLogic todoLogic){
+        this.todoLogic = todoLogic;
     }
 
     public StringProperty ownerProperty() {
@@ -25,6 +25,6 @@ public class AddViewModel {
 
     public void addTodo() {
         Todo todo = new Todo(owner.getValue(), description.getValue());
-        todoService.add(todo);
+        todoLogic.add(todo);
     }
 }
