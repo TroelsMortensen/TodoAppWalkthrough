@@ -6,9 +6,9 @@ import todoapp.view.update.UpdateViewModel;
 
 public class ViewModelFactory {
 
-    private LogicFactory logicFactory;
+    private DomainFactory logicFactory;
 
-    public ViewModelFactory(LogicFactory logicFactory) {
+    public ViewModelFactory(DomainFactory logicFactory) {
         this.logicFactory = logicFactory;
     }
 

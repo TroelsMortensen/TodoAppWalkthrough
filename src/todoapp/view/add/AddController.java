@@ -1,10 +1,11 @@
 package todoapp.view.add;
 
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 import todoapp.core.ViewHandler;
 
 public class AddController {
-
 
     public TextField ownerTextField;
     public TextField descriptionTextField;
@@ -23,8 +24,8 @@ public class AddController {
             addVM.addTodo();
             viewHandler.openListView();
         } catch (Exception e) {
-            e.printStackTrace();
-            // TODO handle this better
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.CLOSE);
+            alert.showAndWait();
         }
     }
 

@@ -1,7 +1,7 @@
 package todoapp.core;
 
-import todoapp.model.TodoFileService;
-import todoapp.model.TodoDataAccess;
+import todoapp.dataaccess.TodoFileService;
+import todoapp.domain.TodoDataAccess;
 
 public class DataAccessFactory {
 

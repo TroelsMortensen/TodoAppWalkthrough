@@ -1,7 +1,4 @@
-package todoapp.logic;
-
-import todoapp.model.Todo;
-import todoapp.model.TodoDataAccess;
+package todoapp.domain;
 
 import java.util.List;
 

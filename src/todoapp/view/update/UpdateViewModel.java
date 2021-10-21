@@ -1,8 +1,8 @@
 package todoapp.view.update;
 
 import javafx.beans.property.*;
-import todoapp.logic.TodoLogic;
-import todoapp.model.Todo;
+import todoapp.domain.TodoLogic;
+import todoapp.domain.Todo;
 
 public class UpdateViewModel {
 

@@ -2,8 +2,8 @@ package todoapp.view.add;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import todoapp.logic.TodoLogic;
-import todoapp.model.Todo;
+import todoapp.domain.TodoLogic;
+import todoapp.domain.Todo;
 
 public class AddViewModel {
 

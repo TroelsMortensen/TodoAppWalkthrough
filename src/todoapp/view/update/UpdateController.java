@@ -1,6 +1,8 @@
 package todoapp.view.update;
 
 import javafx.beans.binding.Bindings;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
 import javafx.util.converter.NumberStringConverter;
@@ -30,8 +32,8 @@ public class UpdateController {
             vm.save();
             viewHandler.openListView();
         } catch (Exception e) {
-            e.printStackTrace();
-            // TODO handle this with popup
+            Alert alert = new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.CLOSE);
+            alert.showAndWait();
         }
     }
 

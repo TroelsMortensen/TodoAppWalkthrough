@@ -1,13 +1,13 @@
 package todoapp.core;
 
-import todoapp.logic.TodoLogic;
-import todoapp.logic.TodoLogicImpl;
+import todoapp.domain.TodoLogic;
+import todoapp.domain.TodoLogicImpl;
 
-public class LogicFactory {
+public class DomainFactory {
 
     private DataAccessFactory dataAccessFactory;
 
-    public LogicFactory(DataAccessFactory dataAccessFactory) {
+    public DomainFactory(DataAccessFactory dataAccessFactory) {
         this.dataAccessFactory = dataAccessFactory;
     }
 

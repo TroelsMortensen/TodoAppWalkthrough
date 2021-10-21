@@ -1,6 +1,7 @@
-package todoapp.model;
+package todoapp.dataaccess;
 
-import todoapp.logic.TodoLogic;
+import todoapp.domain.Todo;
+import todoapp.domain.TodoDataAccess;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -9,18 +10,9 @@ import java.util.List;
 public class TodoFileService implements TodoDataAccess {
 
     private String path = "todos.bin";
-    private List<Todo> list = new ArrayList<>();
 
-    public TodoFileService() {
-        File f = new File(path);
-        if(f.exists()) {
-            readFromFile();
-        } else {
-            seed();
-        }
-    }
-
-    private void seed() {
+    private List<Todo> seed() {
+        List<Todo> list = new ArrayList<>();
         Todo t1 = new Todo("Troels", "walk the dog");
         t1.setId(1);
         list.add(t1);
@@ -33,22 +25,31 @@ public class TodoFileService implements TodoDataAccess {
         Todo t4 = new Todo("Anne", "Pet the dog");
         t4.setId(4);
         list.add(t4);
+        return list;
     }
 
-    private void readFromFile() {
-        try {
-            FileInputStream fis = new FileInputStream(path);
-            ObjectInputStream ois = new ObjectInputStream(fis);
-            list = (ArrayList<Todo>)ois.readObject();
-            ois.close();
-            fis.close();
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-            // todo fix this
+    private List<Todo> readTodos() {
+        List<Todo> list = new ArrayList<>();
+        File file = new File(path);
+
+        if(file.exists()) {
+            try {
+                FileInputStream fis = new FileInputStream(path);
+                ObjectInputStream ois = new ObjectInputStream(fis);
+                list = (ArrayList<Todo>) ois.readObject();
+                ois.close();
+                fis.close();
+            } catch (IOException | ClassNotFoundException e) {
+                e.printStackTrace();
+                // todo fix this
+            }
+        } else {
+            list = seed();
         }
+        return list;
     }
 
-    public void saveChanges() {
+    public void saveChanges(List<Todo> list) {
         try {
             FileOutputStream fos = new FileOutputStream(path);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -62,6 +63,7 @@ public class TodoFileService implements TodoDataAccess {
 
     @Override
     public void add(Todo todo) {
+        List<Todo> list = getAll();
         int max = 0;
         for (Todo t : list) {
             if(t.getId() > max) max = t.getId();
@@ -69,11 +71,12 @@ public class TodoFileService implements TodoDataAccess {
         int id = (max+1);
         todo.setId(id);
         list.add(todo);
-        saveChanges();
+        saveChanges(list);
     }
 
     @Override
     public void update(Todo todo) {
+        List<Todo> list = getAll();
         Todo found = null;
         for (Todo t : list) {
             if(t.getId() == todo.getId()) {
@@ -90,22 +93,25 @@ public class TodoFileService implements TodoDataAccess {
         found.setOwner(todo.getOwner());
         found.setText(todo.getText());
 
-        saveChanges();
+        saveChanges(list);
     }
 
     @Override
     public void delete(int id) {
+        List<Todo> list = readTodos();
         list.removeIf(t -> t.getId() == id);
-        saveChanges();
+        saveChanges(list);
     }
 
     @Override
     public List<Todo> getAll() {
+        List<Todo> list = readTodos();
         return new ArrayList<>(list);
     }
 
     @Override
     public Todo get(int id) {
+        List<Todo> list = getAll();
         for (Todo todo : list) {
             if(todo.getId() == id) return todo;
         }

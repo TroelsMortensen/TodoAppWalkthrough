@@ -2,8 +2,8 @@ package todoapp.view.list;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import todoapp.logic.TodoLogic;
-import todoapp.model.Todo;
+import todoapp.domain.TodoLogic;
+import todoapp.domain.Todo;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package todoapp.model;
+package todoapp.domain;
 
 import java.io.Serializable;
 
