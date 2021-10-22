@@ -5,7 +5,7 @@ A simple todo app, which follows our MVVM JavaFX architecture.
 I'm doing a video tutorial. Link to YouTube: https://youtube.com/playlist?list=PL5I0mJDB37i9eTA5CjDmV7Pdt9QjAsfL2
 
 This time I've tried to use different branches, so you can see for each video part what the code looks like. 
-This is because I imagine I'll make code cleanups/refactorings along the way.
+This is because I imagine I'll make code cleanups/refactorings along the way. You can change from the master branch to other branches like so:
 
 ![Alt Text](https://github.com/TroelsMortensen/TodoAppWalkthrough/blob/master/MultipleBranches.gif)
 
