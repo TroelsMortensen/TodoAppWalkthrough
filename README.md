@@ -19,9 +19,10 @@ This is because I imagine I'll make code cleanups/refactorings along the way.
 
 5. Popup branch: part 7, how to make a small popup to show error/success messages and the like.
 
+6. DeleteTodo branch: part 8, how to delete a todo from the tabel.
+
 
 ### Current roadmap (prioritized)
-1. Delete a todo
 2. filtering the view of todos (use a filter object, with fluent builder)
 3. refactor the open * View method in ViewHandler to one method
 4. add users
