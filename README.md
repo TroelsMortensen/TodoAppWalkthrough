@@ -26,3 +26,4 @@ This is because I imagine I'll make code cleanups/refactorings along the way.
 3. refactor the open * View method in ViewHandler to one method
 4. add users
 5. change file storage to use json instead of binary
+6. add priority to todo items.
