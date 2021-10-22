@@ -24,7 +24,7 @@ This is because I imagine I'll make code cleanups/refactorings along the way.
 
 ### Current roadmap (prioritized)
 * filtering the view of todos (use a filter object, with fluent builder)
-* refactor the open * View method in ViewHandler to one method
+* add priority to todo items.
 * add users
 * change file storage to use json instead of binary
-* add priority to todo items.
+* refactor the open * View method in ViewHandler to one method
