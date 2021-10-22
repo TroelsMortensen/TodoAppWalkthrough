@@ -1,10 +1,7 @@
 package todoapp.view.list;
 
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import todoapp.core.ViewHandler;
 import todoapp.domain.Todo;
@@ -17,6 +14,7 @@ public class ListController {
     public TableColumn<Todo, String> textColumn;
     public TableColumn<Todo, CheckBox> statusColumn;
     public TableColumn<Todo, Button> editColumn;
+    public TableColumn<Todo, Button> deleteColumn;
 
     private ViewHandler viewHandler;
 
@@ -56,9 +54,61 @@ public class ListController {
                 }
         );
 
+        deleteColumn.setCellValueFactory(arg -> {
+            Button button = new Button("Del");
+            Todo todo = arg.getValue();
+
+            button.setOnAction(evt -> {
+                try {
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Delete todo?", ButtonType.OK, ButtonType.CANCEL);
+                    alert.showAndWait();
+                    if(alert.getResult() == ButtonType.OK){
+                        listVM.deleteTodo(todo.getId());
+                    }
+                } catch (Exception e) {
+                    new Alert(Alert.AlertType.ERROR, e.getMessage(), ButtonType.CLOSE).showAndWait();
+                }
+            });
+
+
+            return new SimpleObjectProperty<>(button);
+        });
     }
 
     public void onAddButton() {
         viewHandler.openAddView();
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

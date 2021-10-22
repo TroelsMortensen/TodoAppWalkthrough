@@ -27,4 +27,11 @@ public class ListViewModel {
     public void updateTodo(Todo todo) {
         todoLogic.update(todo);
     }
+
+    public void deleteTodo(int id) {
+        todoLogic.delete(id);
+        if(!todos.removeIf(todo -> todo.getId() == id)) {
+            throw new RuntimeException("Todo with id " + id + " could not be found in the table");
+        }
+    }
 }
