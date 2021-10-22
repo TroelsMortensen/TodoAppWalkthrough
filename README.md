@@ -6,6 +6,7 @@ I'm doing a video tutorial. Link to YouTube: https://youtube.com/playlist?list=P
 
 This time I've tried to use different branches, so you can see for each video part what the code looks like. 
 This is because I imagine I'll make code cleanups/refactorings along the way.
+
 ![Alt Text](https://github.com/TroelsMortensen/TodoAppWalkthrough/blob/master/MultipleBranches.gif)
 
 
