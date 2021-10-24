@@ -27,7 +27,7 @@ This is because I imagine I'll make code cleanups/refactorings along the way. Yo
 
 ### Current roadmap (prioritized)
 * add priority and category to todo items.
-* filtering the view of todos (use a filter object, with fluent builder)
+* filtering the view of todos (use a filter object)
 
 * add users
 * change file storage to use json instead of binary
