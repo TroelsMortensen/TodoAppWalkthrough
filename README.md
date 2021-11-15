@@ -6,6 +6,7 @@ I'm doing a video tutorial. Link to YouTube: https://youtube.com/playlist?list=P
 
 This time I've tried to use different branches, so you can see for each video part what the code looks like. 
 This is because I imagine I'll make code cleanups/refactorings along the way. You can change from the master branch to other branches like so:
+
 <kbd>
 ![Alt Text](https://github.com/TroelsMortensen/TodoAppWalkthrough/blob/master/MultipleBranches.gif)
 </kbd>
@@ -25,10 +26,12 @@ This is because I imagine I'll make code cleanups/refactorings along the way. Yo
 6. DeleteTodo branch: part 8, how to delete a todo from the tabel.
 
 
-### Current roadmap (prioritized)
+### Current roadmap (prioritized, perhaps?)
 * add priority and category to todo items.
-* filtering the view of todos (use a filter object)
+* filtering the view of todos (use a filter object?)
 
 * add users
 * change file storage to use json instead of binary
 * refactor the open * View method in ViewHandler to one method
+* Split code into modules, i.e. attempt more DDD and Clean
+* Add client-server with sockets, then with RMI
